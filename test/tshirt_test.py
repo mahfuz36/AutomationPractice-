@@ -15,6 +15,7 @@ class TshirtTest(unittest.TestCase):
     def test_tshirt_shopping(self):
         baseUrl = Configuration.BASE_URL
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+        driver.maximize_window()
         driver.implicitly_wait(5)
         driver.get(baseUrl)
         time.sleep(3)

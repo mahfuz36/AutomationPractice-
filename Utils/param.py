@@ -29,7 +29,7 @@ class Configuration(object):
     # ORDER_MESSAGE = "Your order on My Store is complete.
 
 
-class CreateAccountLocator:
+class RegistrationPageLocators:
     MrTitle_id = 'id_gender1'
     firstName_id = 'customer_firstname'
     lastName_id = 'customer_lastname'

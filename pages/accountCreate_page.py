@@ -5,22 +5,29 @@ from selenium.webdriver.support.select import Select
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
-class RegistrationPage():
+class NewAccountCreatePage:
 # @pytest.fixture(scope="class")
 # class AutoPractice:
-    def __int__(self,driver):
+    def __int__(self, driver):
         self.driver = driver
 
-    def auto_prac(self):
-        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-        self.driver.get("http://automationpractice.com/index.php")
+    def new_account_create(self):
+        # self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+        # self.driver.get("http://asutomationpractice.com/index.php")
+        # self.driver.get ("http: // automationpractice.com / index.php?controller = authentication & back = my - account")
         # wait=WebDriverWait(driver,10)
-        self.driver.maximize_window()
+        # self.driver.maximize_window()
         # request.cls.driver=driver # user the class on test_login
-        self.driver.find_element(By.LINK_TEXT, "Sign in").click()
-        self.driver.find_element(By.ID, "email_create").send_keys("mahfuzf10@gmail.com")
-        self.driver.find_element(By.XPATH, "//*[@id='SubmitCreate']/span").click()
-        self.driver.find_element(By.XPATH, "//*[@id='id_gender1']").click()
+        # self.driver.find_element(By.LINK_TEXT, "Sign in").click()
+        # self.driver.find_element(By.ID, "email_create").send_keys("mahfuzf10@gmail.com")
+        # self.driver.find_element(By.ID, "SubmitCreate").click()
+        ("Md Mahfuzur","Rahman","mahfuz","ABC Ltd.","Dhaka 1207","Dhaka","12070","ABCDEF","01758050312","01758050312","DHK")
+
+        gender = self.driver.find_element(By.XPATH, "//*[@id='id_gender1']")
+        gender_status = gender.is_selected()
+        if not gender_status:
+            gender.click()
+        time.sleep(1)
         self.driver.find_element(By.ID, "customer_firstname").send_keys("Md Mahfuzur")
         self.driver.find_element(By.ID, "customer_lastname").send_keys("Rahman")
         self.driver.find_element(By.ID, "email").is_displayed()
@@ -38,7 +45,7 @@ class RegistrationPage():
         self.driver.find_element(By.ID, "address2").send_keys(" ")
         self.driver.find_element(By.ID, "city").send_keys("Dhaka")
         Select(self.driver.find_element(By.ID, "id_state")).select_by_index(5)
-        self.driver.find_element(By.ID, "postcode").send_keys("1207")
+        self.driver.find_element(By.ID, "postcode").send_keys("12070")
         Select(self.driver.find_element(By.ID, "uniform-id_country")).select_by_index(2)
         self.driver.find_element(By.ID, "other").send_keys("ABCDEF")
         self.driver.find_element(By.ID, "phone").send_keys("01758050312")
